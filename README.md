@@ -28,7 +28,8 @@ It was created as part of an assignment to practice:
 - Smooth and clean UI
   
 # Screenshot
-UI design for Task management System
+UI design for Task management Dashboard
+
 <img width="1905" height="950" alt="image" src="https://github.com/user-attachments/assets/2cfd4201-11ad-4afe-aedd-dd15c2e36055" />
 
 # How to Run Locally
