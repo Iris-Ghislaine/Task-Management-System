@@ -37,7 +37,7 @@ UI design for Task management Dashboard
 ```git clone http://github.com/Iris-Ghislaine/Task-Management-System.git```
 2. Open the project folder:
    cd Task-Management-System
-3. Open index.html in your browser (_No server setup required — just open the file directly!_)
+3. Open index.html in your browser (_No server setup required, just open the file directly!_)
 
 # Deployment
 The project is deployed here: ```https://tasksmanagementdashboard.netlify.app/```
