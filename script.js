@@ -40,12 +40,23 @@ function renderTasks() {
     if (currentFilter === "completed") return task.status === "completed";
     return true;
   });
- // Sort tasks by date
-  filteredTasks.sort((a, b) => {
-    if (currentSort === "date-asc")
-      return new Date(a.dueDate) - new Date(b.dueDate);
+ /// Sort tasks by date and name
+filteredTasks.sort((a, b) => {
+  if (currentSort === "date-asc") {
+    return new Date(a.dueDate) - new Date(b.dueDate);
+  }
+  if (currentSort === "date-desc") {
     return new Date(b.dueDate) - new Date(a.dueDate);
-  });
+  }
+  if (currentSort === "name-asc") {
+    return a.name.localeCompare(b.name);
+  }
+  if (currentSort === "name-desc") {
+    return b.name.localeCompare(a.name);
+  }
+  return 0;
+});
+
 // task icons
   filteredTasks.forEach((task) => {
     const li = document.createElement("li");
@@ -140,8 +151,30 @@ filterBtns.forEach(btn => {
   });
 });
 
-// Sorting
+// Sorting methods change
 sortSelect.addEventListener("change", e => {
   currentSort = e.target.value;
   renderTasks();
 });
+// Save & Load from LocalStorage
+function saveTasks() {
+  localStorage.setItem("tasks", JSON.stringify(tasks));
+}
+
+// Update dashboard counts
+function updateDashboard() {
+  const total = tasks.length;
+  const pending = tasks.filter(t => t.status === "pending").length;
+  const completed = tasks.filter(t => t.status === "completed").length;
+
+  document.getElementById("totalCount").textContent = total;
+  document.getElementById("pendingCount").textContent = pending;
+  document.getElementById("completedCount").textContent = completed;
+}
+function loadTasks() {
+  const saved = localStorage.getItem("tasks");
+  if (saved) tasks = JSON.parse(saved);
+}
+
+loadTasks();
+renderTasks();
