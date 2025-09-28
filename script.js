@@ -132,3 +132,16 @@ function editTask(id) {
   if (newDate) task.dueDate = newDate;
   renderTasks();
 }
+// Filters
+filterBtns.forEach(btn => {
+  btn.addEventListener("click", () => {
+    currentFilter = btn.getAttribute("data-filter");
+    renderTasks();
+  });
+});
+
+// Sorting
+sortSelect.addEventListener("change", e => {
+  currentSort = e.target.value;
+  renderTasks();
+});
