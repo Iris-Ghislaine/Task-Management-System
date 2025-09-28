@@ -108,11 +108,27 @@ taskForm.addEventListener("submit", (e) => {
   taskDateInput.value = "";
   renderTasks();
 });
-
 // Toggle status
 function toggleTask(id) {
   tasks = tasks.map(task =>
     task.id === id ? { ...task, status: task.status === "pending" ? "completed" : "pending" } : task
   );
+  renderTasks();
+}
+// Delete task
+function deleteTask(id) {
+  if (confirm("Are you sure you want to delete this task?")) {
+    tasks = tasks.filter(task => task.id !== id);
+    renderTasks();
+  }
+}
+// Edit task
+function editTask(id) {
+  const task = tasks.find(t => t.id === id);
+  const newName = prompt("Edit task name:", task.name);
+  const newDate = prompt("Edit due date (YYYY-MM-DD):", task.dueDate);
+
+  if (newName) task.name = newName;
+  if (newDate) task.dueDate = newDate;
   renderTasks();
 }
