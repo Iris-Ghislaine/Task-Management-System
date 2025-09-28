@@ -30,7 +30,7 @@ It was created as part of an assignment to practice:
 # Screenshot
 UI design for Task management Dashboard
 
-<img width="1905" height="950" alt="image" src="https://github.com/user-attachments/assets/2cfd4201-11ad-4afe-aedd-dd15c2e36055" />
+<img width="1909" height="949" alt="image" src="https://github.com/user-attachments/assets/2cedd5a0-cbac-4d7e-8b14-31f48981cf64" />
 
 # How to Run Locally
 1. Clone this repository:
